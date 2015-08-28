@@ -51,7 +51,7 @@ module Consul
                 return
               end
 
-              sleep rand # to avoid conflict
+              sleep(rand * 0.1) # to avoid conflict
             else
               debug "blocking"
               res = client.get_kv("#{@prefix}/.lock", index: modify_index)
@@ -69,7 +69,7 @@ module Consul
               return
             end
 
-            sleep rand # to avoid conflict
+            sleep(rand * 0.1) # to avoid conflict
           end
 
           debug "retrying"
