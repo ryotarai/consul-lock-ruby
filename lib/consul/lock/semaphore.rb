@@ -115,7 +115,7 @@ module Consul
       private
 
       def client
-        Client.new(Consul::Lock.url)
+        @client ||= Client.new(Consul::Lock.url)
       end
 
       def debug(msg)
