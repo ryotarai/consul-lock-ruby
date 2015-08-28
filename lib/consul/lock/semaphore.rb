@@ -13,7 +13,7 @@ module Consul
       end
 
       def reset
-        client.conn.delete "/v1/kv/#{@prefix}?recurse"
+        client.delete_kv(@prefix, recurse: true)
       end
 
       def lock

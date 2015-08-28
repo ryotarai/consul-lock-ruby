@@ -30,8 +30,8 @@ module Consul
         res.body == 'true' ? true : false
       end
 
-      def delete_kv(key)
-        request(:delete, "/v1/kv/#{key}")
+      def delete_kv(key, params = {})
+        request(:delete, "/v1/kv/#{key}", params)
       end
 
       private
